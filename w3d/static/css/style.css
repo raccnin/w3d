@@ -1,0 +1,55 @@
+:root {
+    --coca-cola-red: #E61D2B;
+}
+
+@font-face {
+    font-family: cocaColaFont;
+    src: url(../assets/fonts/lokicola.ttf)
+}
+
+body {
+    padding-bottom: 5px;
+    background-color:azure;
+}
+
+.logo {
+    margin-top: 10px;
+}
+
+h1, h2, h3, h4, h5, h6 {
+	font-family: 'Oswald', sans-serif; 
+}
+
+.logo-font>h1,
+.logo-font>h2 {
+    font-family: cocaColaFont !important;
+}
+
+.logo-subtitle {
+    font-size: 10px;
+    font-weight: 200;
+    margin-top: 0px;
+    text-align: center;
+}
+
+/* Booststrap Overrides */
+.navbar-brand{
+    transition:0.4s;
+}
+
+.navbar-brand:hover{
+    color: var(--coca-cola-red) !important;
+}
+
+.navbar-brand h1{
+    font-size:45px;
+    display:inline;
+}
+.navbar-brand h2{
+    margin-top: 10px;
+    font-size:45px;
+    display:inline;
+}
+.navbar-brand h3{
+    display:inline;
+}
