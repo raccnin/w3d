@@ -1,0 +1,22 @@
+<div class="container card">
+    <div class="row">
+        <div class="col-12 col-md-6 d-md-flex align-self-center justify-content-md-center">
+            <img src="{{ url_for('static', filename='assets/images/'+card_data['thumbnail']) }}" width="400" height="auto"
+                loading="lazy">
+        </div>
+        <div class="col-12 col-md-6 d-md-flex align-self-center justify-content-md-center">
+            <div class="container">
+                <div class="row">
+                    <h2> {{ card_data['name'] }} </h2>
+                </div>
+                <div class="row">
+                    <p> {{ card_data['description'] }} </p>
+                </div>
+                <div class="row">
+                    <button type="button" class="btn btn-dark" onClick="window.location=window.location.origin + '/drinks/' + {{ card_data['id']}}">Check it out!</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>

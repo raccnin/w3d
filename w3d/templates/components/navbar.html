@@ -1,0 +1,43 @@
+<nav class="main-navbar navbar navbar-dark fixed-top navbar-expand-sm">
+
+      <div class="container-fluid">
+        <a class="navbar-brand" href="/">
+          <div>
+            <span class="logo-font">
+              <h1>1</h1>
+              <h1>oca</h1>
+              <h2>Cola</h2>
+            </span>
+            <h3>| Journey</h3>
+          </div>
+          <div class="logo-subtitle">
+            Refreshing the world, one story at a time
+          </div>
+        </a>
+        <!-- Collapsible Button -->
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <!-- Links -->
+        <div class="collapse navbar-collapse">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="/">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">About</a>
+            </li>
+            <!-- Dropdown -->
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Drinks</a>
+              <ul class="dropdown-menu dropdown-menu-end">
+                {% for drink in g.drinks %}
+                  <li><a class="dropdown-item" href="drinks/{{ drink }}">{{ g.drinks[drink]['name'] }}</a></li>
+                {% endfor %}
+              </ul>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+    </nav>

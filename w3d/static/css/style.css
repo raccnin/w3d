@@ -1,6 +1,12 @@
 :root {
+    --primary-colour: #ffe1aa99;
+    --secondary-colour: #750E25;
     --coca-cola-red: #E61D2B;
+    --dr-pepper-read: #d51143;
+    --sprite-green: #008B47;
 }
+
+html {scroll-behavior: smooth;}
 
 @font-face {
     font-family: cocaColaFont;
@@ -9,7 +15,16 @@
 
 body {
     padding-bottom: 5px;
-    background-color:azure;
+}
+
+.soda-cards {
+    padding-top: 50px;
+    padding-bottom: 50px;
+}
+
+.card {
+    padding-top: 15px;
+    padding-bottom: 15px;
 }
 
 .logo {
@@ -28,11 +43,16 @@ h1, h2, h3, h4, h5, h6 {
 .logo-subtitle {
     font-size: 10px;
     font-weight: 200;
-    margin-top: 0px;
     text-align: center;
 }
 
-/* Booststrap Overrides */
+/*
+ * Navbar styling
+*/
+.main-navbar{
+    background-color: var(--secondary-colour);
+}
+
 .navbar-brand{
     transition:0.4s;
 }
@@ -52,4 +72,47 @@ h1, h2, h3, h4, h5, h6 {
 }
 .navbar-brand h3{
     display:inline;
+}
+
+.navbar-toggler{
+    border: 0 !important
+}
+.navbar-toggler:focus{
+    box-shadow: none !important
+}
+
+/*
+ * Hero styling
+ */
+.hero {
+    position: relative;
+    height: 100vh;
+    background-color: var(--secondary-colour);
+    overflow: hidden;
+}
+
+.hero-content {
+    z-index: 1;
+}
+
+.hero-btn {
+    position: absolute;
+    left: 50%;
+    bottom: 30px;
+    transform: translateX(-50%);
+    z-index: 1;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-decoration: none;
+    transition: 0.4s;
+}
+.hero-btn:hover {
+    color: white;
+    opacity: 0.6;
+}
+
+.top-content {
+    margin-top:111px;
 }

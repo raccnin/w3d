@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block title %}{{ drink_data['name'] }} {% endblock %}
+
+{% block content %}
+    <script> 
+        var modelPath = "{{ url_for('static', filename='assets/models/' + drink_data['model']) }}";
+    </script>
+    <div class="container top-content">
+        <p>
+            {{ drink_data }}
+        </p>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/model_loader.js')}}"></script>
+{% endblock %}

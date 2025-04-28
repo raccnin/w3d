@@ -1,1 +1,46 @@
 {% extends 'base.html' %}
+
+<h1>{% block title %}Coca-Cola | Journey{% endblock %}</h1>
+
+
+
+{% block content %}
+<section class="hero">
+
+   <div class="hero-content h-100 container-xxl position-relative">
+      <div class="d-flex h-100 align-items-center">
+         <span class="text-white">
+            <h1 class="fw-bold mb-4">
+               Discover the World of Coca-Cola.
+            </h1>
+            <p class="lead mb-4">
+               The Coca Cola Company is the world's leading manufacturer, marketer and distributor of non-alcoholic beverage concentrates and syrups, and produces nearly 400 brands.
+            </p>
+         </span>
+
+      </div>
+   </div>
+
+   <a href="#scroll-down" class="hero-btn">
+      <p class="fw-bold mb-0">
+         Explore
+      </p> 
+      <i class="bi bi-arrow-down-short"></i>
+   </a>
+
+</section>
+
+<a id="scroll-down"></a>
+
+
+<section class="soda-cards">
+
+   {% for drink in g.drinks %}
+      {% with card_data=g.drinks[drink] %}
+         {% include 'components/card.html' %}
+      {% endwith %}
+   {% endfor %}
+
+</section>
+
+{% endblock %}
