@@ -11,6 +11,7 @@ bp = Blueprint('drinks', __name__, url_prefix='/drinks')
 @bp.route('/<int:drink_id>')
 def drink_page(drink_id):
     drinks = utils.get_drinks()
+
     if drink_id not in drinks:
         abort(404, f"Drink ID {drink_id} does not exist")
 

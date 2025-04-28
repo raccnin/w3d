@@ -3,14 +3,15 @@
 {% block title %}{{ drink_data['name'] }} {% endblock %}
 
 {% block content %}
+    <div class="container top-content">
+        <div id="canvas">
+            
+        </div>
+    </div>
+
+    <!-- Script for models -->
     <script> 
         var modelPath = "{{ url_for('static', filename='assets/models/' + drink_data['model']) }}";
     </script>
-    <div class="container top-content">
-        <p>
-            {{ drink_data }}
-        </p>
-    </div>
-
-    <script src="{{ url_for('static', filename='js/model_loader.js')}}"></script>
+    <script type="module" src="{{ url_for('static', filename='js/model_loader.js') }}"></script>
 {% endblock %}
