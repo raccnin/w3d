@@ -4,5 +4,6 @@
     "name": "Sprite",
     "description": "First introduced in 1961, crisp, refreshing, clean-tasting Sprite is now the world's leading lemon and lime flavoured soft drink and is sold in more than 190 different countries. Sprite Zero, part of our no sugar Zero range, offers the delicious lemon lime taste of Sprite without the sugar or calories.",
     "thumbnail": "sprite.png",
+    "colour": "008B47",
     "model": "sprite_bottle.glb"
 }

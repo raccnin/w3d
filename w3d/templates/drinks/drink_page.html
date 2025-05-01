@@ -3,15 +3,48 @@
 {% block title %}{{ drink_data['name'] }} {% endblock %}
 
 {% block content %}
-    <div class="container top-content">
-        <div id="canvas">
+<h1> Test </h1>
+<div class="container card top-content">
+    <div class="row">
+        <div id="canvasContainer" class="container col-12 col-md-6 d-md-flex align-self-center justify-content-md-center">
+            <div class="row">
+                <canvas id="threeCanvas"></canvas>
+                <div class="canvas-buttons container">
+                    <button id="wireframeToggle" class="btn btn-dark">Toggle Wireframe</button>
+                    <button id="rotationToggle" class="btn btn-dark ">Auto-Rotate</button>
+                    <button id="animateButton" class="btn btn-dark">Open Me!</button>
+                </div>
+            </div>
             
         </div>
-    </div>
+        <div class="col-12 col-md-6 d-md-flex align-self-center justify-content-md-center">
+            <div class="container">
+                <div class="row">
+                    <h2> {{ drink_data['name'] }} </h2>
+                </div>
+                <div class="row">
+                    <p> {{ drink_data['description'] }} </p>
+                </div>
+            </div>
 
-    <!-- Script for models -->
-    <script> 
-        var modelPath = "{{ url_for('static', filename='assets/models/' + drink_data['model']) }}";
-    </script>
-    <script type="module" src="{{ url_for('static', filename='js/model_loader.js') }}"></script>
-{% endblock %}
+        </div>
+        </div>
+        </div>
+        <!-- Script for models -->
+        <script type="importmap">
+        {
+          "imports": {
+            "three": "{{ url_for('static', filename='/node_modules/three/build/three.module.js') }}",
+            "three/addons/": "{{ url_for('static', filename='node_modules/three/examples/jsm/') }}"
+          }
+        }
+        </script>
+        <script>
+            var drink_data = {
+                'model_path':  "{{ url_for('static', filename='assets/models/' + drink_data['model']) }}",
+                'class': "{{ drink_data['class'] }}",
+                'colour': "{{ drink_data['colour'] }}"
+            };
+        </script>
+        <script type="module" src="{{ url_for('static', filename='js/model_loader.js') }}"></script>
+        {% endblock %}

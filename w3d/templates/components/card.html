@@ -13,7 +13,7 @@
                     <p> {{ card_data['description'] }} </p>
                 </div>
                 <div class="row">
-                    <button type="button" class="btn btn-dark" onClick="window.location=window.location.origin + '/drinks/' + {{ card_data['id']}}">Check it out!</button>
+                    <button type="button" class="btn" style="background-color: #{{card_data['colour']}}" onClick="window.location=window.location.origin + '/drinks/' + {{ card_data['id']}}">Check it out!</button>
                 </div>
             </div>
 

@@ -22,8 +22,12 @@ body {
     padding-bottom: 50px;
 }
 
+.soda-cards button {
+    color: white;
+}
+
 .card {
-    padding-top: 15px;
+    padding-top: 10px;
     padding-bottom: 15px;
 }
 
@@ -34,6 +38,7 @@ body {
 h1, h2, h3, h4, h5, h6 {
 	font-family: 'Oswald', sans-serif; 
 }
+
 
 .logo-font>h1,
 .logo-font>h2 {
@@ -95,6 +100,10 @@ h1, h2, h3, h4, h5, h6 {
     z-index: 1;
 }
 
+.content {
+    padding-bottom: 20px;
+}
+
 .hero-btn {
     position: absolute;
     left: 50%;
@@ -115,4 +124,15 @@ h1, h2, h3, h4, h5, h6 {
 
 .top-content {
     margin-top:111px;
+}
+
+.canvas {
+    position:relative;
+}
+
+.canvas-buttons {
+    position:absolute;
+    padding-top: 10px;
+    padding-left: 20px;
+    display: inline;
 }
