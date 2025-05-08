@@ -19,20 +19,20 @@
           <span class="navbar-toggler-icon"></span>
         </button>
         <!-- Links -->
-        <div class="collapse navbar-collapse">
+        <div id="navbar-buttons" class="collapse navbar-collapse">
           <ul class="navbar-nav ms-auto">
-            <li class="nav-item">
+            <li data-bs-toggle="tab" class="nav-item">
               <a class="nav-link" href="/">Home</a>
             </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">About</a>
+            <li  data-bs-toggle="tab" class="nav-item">
+              <a class="nav-link" href="/about">About</a>
             </li>
             <!-- Dropdown -->
             <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Drinks</a>
               <ul class="dropdown-menu dropdown-menu-end">
                 {% for drink in g.drinks %}
-                  <li><a class="dropdown-item" href="drinks/{{ drink }}">{{ g.drinks[drink]['name'] }}</a></li>
+                  <li data-bs-toggle="tab" ><a class="dropdown-item" href="drinks/{{ drink }}">{{ g.drinks[drink]['name'] }}</a></li>
                 {% endfor %}
               </ul>
             </li>

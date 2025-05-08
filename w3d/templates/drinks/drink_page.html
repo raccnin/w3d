@@ -43,7 +43,8 @@
             var drink_data = {
                 'model_path':  "{{ url_for('static', filename='assets/models/' + drink_data['model']) }}",
                 'class': "{{ drink_data['class'] }}",
-                'colour': "{{ drink_data['colour'] }}"
+                'colour': "{{ drink_data['colour'] }}",
+                'sound_path': "{{ url_for('static', filename='assets/audio/' + drink_data['sound']) }}",
             };
         </script>
         <script type="module" src="{{ url_for('static', filename='js/model_loader.js') }}"></script>

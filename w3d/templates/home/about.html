@@ -1,0 +1,114 @@
+{% extends "base.html" %}
+
+{% block title %}About{% endblock %}
+
+{% block content %}
+<div class="top-content container">
+    {% with header="About", content=
+    [
+    "This site inspires visitors to consume products, particularly ones owned by the coca-cola corporation, via 3D
+    integration and interaction.
+    Created using flask, this webapp makes use of model-view-controller architecture to display an arbitrary amount of
+    3D models to a visitor. Fetching each json
+    object, parsing each json object, and finally using this data to construct a 3D view or call-to-action card. This
+    aids both development and viewing experiences
+    as each page is uniform.",
+    "Branding in both textual and textural not made by the developer has been sourced from coca-cola branded sources. Mainly derived from the content set out
+    in the labs throughout the course of this module, they have not been authored by the developer. Everything else however is original, and developed solely for
+    this project."
+    ]
+    %}
+    {% include "home/about_section.html" %}
+    {% endwith %}
+    {% with header="3D Models", content=
+    [
+    "Three models were produced in the making of this project, each in the affect of a can/bottle of beverage produced by the coca-cola company. In particular:
+    a coca-cola can, a sprite bottle, and a dr pepper bottle. The texturing, animation, and construction of each was performed in Blender and exported into
+    the gltf format for three.js to consume and replicate.",
+
+    "Emulating the real product, each model attempts to replicate their real world counterparts. The animation of each model has been produced to convey this
+    effect further whilst providing a level of interactivity for the user. Making use of blender's keyframes, can's are cracked open, and bottles lids are spun, 
+    evoking the familiar sensation of thirst that leads one to do such deeds. The illusion is broken as the user sits longing behind their screen, with their only 
+    point of recourse being purchase, the advertisement successful.",
+
+    "No special treatment is required for individual models and each is reproduced equally. Centered and orbited by a user controlled camera, each object is 
+    lit immediately by a directional light and ambiently by a hemisphere encouraging even but dynamic lighting. Providing a sense of depth, the splendour of
+    geometry is then better appreciated.",
+
+    ]
+    %}
+    
+    {% include "home/about_section.html" %}
+    <div class="container" style="padding-bottom:10px;">
+        <div class="row">
+            <div class="col-sm-4">
+                <img class="img-fluid" src="{{ url_for('static', filename='assets/images/coke_model.png') }}"/>
+            </div>
+            <div class="col-sm-4">
+                <img class="img-fluid" src="{{ url_for('static', filename='assets/images/sprite_model.png') }}"/>
+            </div>
+            <div class="col-sm-4">
+                <img class="img-fluid" src="{{ url_for('static', filename='assets/images/dr_pepper_model.png') }}"/>
+            </div>
+        </div>
+    </div>
+    {% endwith %}
+
+    {% with header="Design", content=
+    [
+    "This website adopts common web design practice to make the most of the knowledge available. Navigation is managed via a navbar that sits on top
+    of the page, interaction is prompted by cards, and users are greeted by conversational language. Making the most of the familiarity developed by
+    a longstanding history of web surfing to create an intuitive experience.",
+
+    "Using feedback, this website has been developed with the user in mind. For example, the navbar has been made to float as one scrolls
+    after a user said that \"[the] navbar could be easier to find on longer pages\", the colours used throughout have been toned down as another said 
+    that the \"colours were too aggressive, making it too difficult to see text\". User experience (UX) is at the core of interactive development,
+    it would be remiss to ignore such feedback from user testing.'"
+    ]
+    %}
+        {% include 'home/about_section.html' %}
+    {% endwith %} 
+
+    {% with header="Integration", content=
+    [
+    "3D models are made part of the site through the usage of javascript. Adopting the threejs package, an argument of model path is fed to a common
+    model loading script, filling a canvas with a rendered scene containing the gltf object. The `GLTFLoader`, provided by threejs makes this possible,
+    parsing the .glb file into all of the components (i.e. animation, geometry, and texturing) necessary to facilitate it's integration."
+    ]
+    %}
+        {% include 'home/about_section.html' %}
+    {% endwith %} 
+
+    {% with header="Interaction", content=
+    [
+    "Further encouraging interest, javascript provides a way for the visitor to interact with each object. A camera orbits the scene, perenially rotating
+    unless toggled, allowing for further inspection of the 3D object. Wireframe representation of each can be turned on and off, and an animation can be 
+    played and reversed. Supported via buttons that overlay the scene, the user need not look away from the can/bottle. Rotating indefinitley at the whim 
+    of it's onlooker the beverage can do naught but tempt.",
+
+    "One user said that they thought that \"the animations should play sound\" to better put the point across. Using javascript, this was easily achieved by
+    adding sound bytes to the json schema and hooking them up to play conditionally alongside the same button press as the animation."
+    ]
+    %}
+        {% include 'home/about_section.html' %}
+    {% endwith %} 
+    {% with header="Implementation", content=
+    [
+    "Adopting the model view controller architecture, this website is served by interlinking parts of logic through python. Specifically, Flask to control the
+    site's logic, json to store it's models, and jinja to provide templatable views, each part relies on the other to function. Modularity and ease of maintenace 
+    are supported without compromising on user experience."
+    ]
+    %}
+        {% include 'home/about_section.html' %}
+    {% endwith %} 
+    {% with header="Deeper Understanding", content=
+    [
+    "Knowledge of flask, blender, javascript, and python were heavily developed upon. Prior to it's completion, the developer
+    had expertise in python only. Adopting an iterative research-development cycle was required to make it possible, flask's debugging capabilities made
+    this a breeze. All of the code used to render this website is on the github repo linked at the bottom right corner of the page. "
+    ]
+    %}
+        {% include 'home/about_section.html' %}
+    {% endwith %} 
+    </div>
+{% endblock %}

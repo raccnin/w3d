@@ -20,22 +20,35 @@ renderer.setSize(width, height);
 window.addEventListener('resize', onResize, false);
 
 const controls = new OrbitControls(camera, renderer.domElement);
+controls.autoRotate = true;
 
 // button functionality
 const wireframeToggle = document.getElementById("wireframeToggle");
 wireframeToggle.addEventListener('click', toggleWireframe, false);
 
-var rotating = true;
 const rotateToggle = document.getElementById("rotationToggle");
-rotateToggle.addEventListener('click', () => {rotating = !rotating})
+rotateToggle.addEventListener('click', () => {controls.autoRotate = !controls.autoRotate})
+
+const animationBtn = document.getElementById("animateButton");
+animationBtn.addEventListener('click', animate);
+const sound_effect = new Audio(drink_data['sound_path']);
 
 const loader = new GLTFLoader();
 
-
+var mixer;
+var open = false;
+const actions = [];
 loader.load(drink_data['model_path'], 
 	function (gltf){
-		let model_scene = gltf.scene;
+		const model_scene = gltf.scene;
 		scene.add(model_scene);
+		mixer = new THREE.AnimationMixer(model_scene);
+		gltf.animations.forEach(clip => {
+			let action = mixer.clipAction(clip);
+			action.setLoop(THREE.LoopOnce);
+			action.clampWhenFinished = true;
+			actions.push(action);
+		})
 	}, 
 	undefined, 
 	function (error) {
@@ -52,20 +65,19 @@ lights.push(directionalLight, ambientLight);
 
 lights.forEach((light) => {scene.add(light)})
 
-function animate(){
+const clock = new THREE.Clock();
+
+function animationLoop(){
+	controls.update();
 	
 	// perform transforms
-	scene.traverse((child) => {
-		if (child instanceof THREE.Mesh){
-			if (rotating) {
-				child.rotateY(0.01);
-			}
-		}
-	})
+	if (mixer) {
+		mixer.update(clock.getDelta());
+	}
 
 	renderer.render(scene, camera);
 }
-renderer.setAnimationLoop(animate);
+renderer.setAnimationLoop(animationLoop);
 
 function onResize() {
 	width = canvasContainer.offsetWidth;
@@ -85,4 +97,28 @@ function toggleWireframe() {
 			child.material.wireframe = !child.material.wireframe;
 		}
 	})
+}
+
+function animate() {
+	// perform animation
+	if (!open) {
+		actions.forEach(action => {action.stop()});
+		actions.forEach(action => {action.timeScale = 1});
+		animationBtn.innerHTML = 'Close Me!';
+		
+		// pause then play sound if playing
+		sound_effect.pause();
+		sound_effect.currentTime = 0;
+		sound_effect.play();
+		open = true;
+	} else {
+		actions.forEach(action => {action.paused = false});
+		actions.forEach(action => {action.timeScale = -1});
+		animationBtn.innerHTML = 'Open Me!';
+
+		sound_effect.pause();
+		sound_effect.currentTime = 0;
+		open = false;
+	}
+	actions.forEach(action => {action.play()});
 }

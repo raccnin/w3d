@@ -8,5 +8,5 @@
 
 ## Running the Web App
 
-while inside of the installed repo's root folder, run `flask --app w3d run --debug` in your console
+while inside of the installed repo's root folder, run `flask --app w3d run --debug` in your console.
 
