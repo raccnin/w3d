@@ -10,4 +10,4 @@
 
 while inside of the installed repo's root folder, run `flask --app w3d run --debug` in your console.
 
-Currently running at [https://w3d-app-jbsh3.ondigitalocean.app/]
+Currently using a DigitalOcean server running at https://w3d.r4ccn1n.xyz
